@@ -28,9 +28,9 @@ var background;
 var sweet;
 var bunny;
 var rowOfBunnies;
-var bunnies;
 
 // Arrays
+var bunnies = [];
 var sweets = [];
 var xSwts = [];
 var ySwts = [];
