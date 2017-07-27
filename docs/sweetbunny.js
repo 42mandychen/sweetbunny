@@ -59,13 +59,13 @@ function preload() {
   // set up sweets
   for (let i = 0; i < numOfSweets; i++) {
     sweets[i] = loadImage("data/sweets" + i + ".png"); //load the i-th sweets
-    xSwts[i] = random(-imgWidth, canvasWidth + imgWidth);
-    ySwts[i] = random(76, height); //set x-i and y-i TODO 76 magic
+    xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+    ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76; //set x-i and y-i TODO 76 magic
 
     if (random(0, 2) < 1) { // TODO magic
-      sSwts[i] = random(8, 15);
+      sSwts[i] = (Math.random() * (15 - 8)) + 8;
     } else {
-      sSwts[i] = random(-15, -8);
+      sSwts[i] = (Math.random() * (15 - 8)) - 15;
     }
     visibleSwts[i] = true;
   }
@@ -74,13 +74,13 @@ function preload() {
   for (let i = 0; i < numOfOthers; i++) {
     //load the i-th other things
     otherthings[i] = loadImage("data/otherthings" + i + ".png");
-    xOths[i] = random(-imgWidth, canvasWidth + imgWidth);
-    yOths[i] = random(76, height); // TODO repetitive code
+    xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+    yOths[i] = (Math.random() * (canvasHeight - 76)) + 76; // TODO repetitive code
 
     if (random(0, 2) < 1) {
-      sOths[i] = random(8, 15);
+      sOths[i] = (Math.random() * (15 - 8)) + 8;
     } else {
-      sOths[i] = random(-15, -8);
+      sOths[i] = (Math.random() * (15 - 8)) - 15;
     }
 
     visibleOths[i] = true;
@@ -139,8 +139,8 @@ function keyTyped() {
 function mousePressed() {
   for (let i = 0; i < numOfSweets; i++) {
     if ((mouseX >= xSwts[i] && mouseX <= xSwts[i] + 70) && (mouseY >= ySwts[i] && mouseY <= ySwts[i] + 70)) {
-      xSwts[i] = random(-70.0, 770.0);
-      ySwts[i] = random(76, height); //set x-i and y-i
+      xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+      ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76; //set x-i and y-i
       if (numS < 5) {
         numS = numS + 1;
       } else {
@@ -151,8 +151,8 @@ function mousePressed() {
   }
   for (let i = 0; i < numOfOthers; i++) {
     if ((mouseX >= xOths[i] && mouseX <= xOths[i] + 70) && (mouseY >= yOths[i] && mouseY <= yOths[i] + 70)) {
-      xOths[i] = random(-70.0, 770.0);
-      yOths[i] = random(76, height);
+      xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+      yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
       stageNum = stageNum - 1;
     }
   }
@@ -231,13 +231,13 @@ function drawGamePlay0() {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
-        xSwts[i] = random(-70.0, 770.0);
-        ySwts[i] = random(76, height);
+        xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sSwts[i] = random(8, 15);
+          sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sSwts[i] = random(-15, -8);
+          sSwts[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
@@ -247,13 +247,13 @@ function drawGamePlay0() {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
-        xOths[i] = random(-70.0, 770.0);
-        yOths[i] = random(76, canvasHeight);
+        xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sOths[i] = random(8, 15);
+          sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sOths[i] = random(-15, -8);
+          sOths[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
@@ -278,13 +278,13 @@ function drawGamePlay1() {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
-        xSwts[i] = random(-70.0, 770.0);
-        ySwts[i] = random(76, height);
+        xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sSwts[i] = random(8, 15);
+          sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sSwts[i] = random(-15, -8);
+          sSwts[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
@@ -294,13 +294,13 @@ function drawGamePlay1() {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
-        xOths[i] = random(-70.0, 770.0);
-        yOths[i] = random(76, height);
+        xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sOths[i] = random(8, 15);
+          sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sOths[i] = random(-15, -8);
+          sOths[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
@@ -325,13 +325,13 @@ function drawGamePlay2() {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
-        xSwts[i] = random(-70.0, 770.0);
-        ySwts[i] = random(76, height);
+        xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sSwts[i] = random(8, 15);
+          sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sSwts[i] = random(-15, -8);
+          sSwts[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
@@ -341,13 +341,13 @@ function drawGamePlay2() {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
-        xOths[i] = random(-70.0, 770.0);
-        yOths[i] = random(76, height);
+        xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sOths[i] = random(8, 15);
+          sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sOths[i] = random(-15, -8);
+          sOths[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
@@ -372,13 +372,13 @@ function drawGamePlay3() {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
-        xSwts[i] = random(-70.0, 770.0);
-        ySwts[i] = random(76, height);
+        xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sSwts[i] = random(8, 15);
+          sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sSwts[i] = random(-15, -8);
+          sSwts[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
@@ -388,13 +388,13 @@ function drawGamePlay3() {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
-        xOths[i] = random(-70.0, 770.0);
-        yOths[i] = random(76, height);
+        xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sOths[i] = random(8, 15);
+          sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sOths[i] = random(-15, -8);
+          sOths[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
@@ -420,13 +420,13 @@ function drawGamePlay4() {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
-        xSwts[i] = random(-70.0, 770.0);
-        ySwts[i] = random(76, height);
+        xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sSwts[i] = random(8, 15);
+          sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sSwts[i] = random(-15, -8);
+          sSwts[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
@@ -436,13 +436,13 @@ function drawGamePlay4() {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
-        xOths[i] = random(-70.0, 770.0);
-        yOths[i] = random(76, height);
+        xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+        yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
         if (random(0, 2) < 1) {
-          sOths[i] = random(8, 15);
+          sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
-          sOths[i] = random(-15, -8);
+          sOths[i] = (Math.random() * (15 - 8)) - 15;
         }
       }
     }
