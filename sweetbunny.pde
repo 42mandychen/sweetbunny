@@ -16,10 +16,10 @@ void setup()
 {
   size(700, 520);
   imgWidth = imgHeight = 70;
-  background = loadImage("background.png");
+  background = loadImage("docs/data/background.png");
   for (int i = 0; i < sweets.length; i=i+1)
   {
-    sweets[i] = loadImage("sweets"+i+".png");  //load the i-th sweets
+    sweets[i] = loadImage("docs/data/sweets"+i+".png");  //load the i-th sweets
 
     xSwts[i] = random(-70.0, 770.0); 
     ySwts[i] = random(76, height);  //set x-i and y-i
@@ -35,7 +35,7 @@ void setup()
   }
   for (int i = 0; i < otherthings.length; i=i+1)
   {
-    otherthings[i] = loadImage("otherthings"+i+".png");  //load the i-th other things
+    otherthings[i] = loadImage("docs/data/otherthings"+i+".png");  //load the i-th other things
     xOths[i] = random(-70.0, 770.0);
     yOths[i] = random(76, height);
 
@@ -143,9 +143,9 @@ void mousePressed()
 }
 void drawWelcome()
 {
-  sweet = loadImage("sweet.png");
-  bunny = loadImage("bunny.png");
-  bunnies = loadImage("bunnies.png");
+  sweet = loadImage("docs/data/sweet.png");
+  bunny = loadImage("docs/data/bunny.png");
+  bunnies = loadImage("docs/data/bunnies.png");
   image(background, 0, 0);
   image(sweet, 200, 50, 300, 100);
   image(bunny, 210, 130, 300, 100);
@@ -194,12 +194,12 @@ void drawInstruction()
   fill(0);
   text("the happier he becomes", 150, 400);
 
-  bunny4 = loadImage("bunny4.png");
+  bunny4 = loadImage("docs/data/bunny4.png");
   image(bunny4, 150, 430, 80, 80);
   textSize(30);  
   fill(0);
   text("You win", 230, 500);
-  bunny0 = loadImage("bunny0.png");
+  bunny0 = loadImage("docs/data/bunny0.png");
   image(bunny0, 360, 430, 80, 80);
   textSize(30);  
   fill(0);
@@ -213,8 +213,8 @@ void drawInstruction()
 void drawGamePlay0()
 {
   image(background, 0, 0);
-  bunnies = loadImage("bunnies.png");
-  bunny0 = loadImage("bunny0.png");
+  bunnies = loadImage("docs/data/bunnies.png");
+  bunny0 = loadImage("docs/data/bunny0.png");
   image(bunny0, mouseX-35, mouseY-35, 70, 70);
   image(bunnies, 100, 10, 300, 60);
   fill(0);
@@ -274,8 +274,8 @@ void drawGamePlay0()
 void drawGamePlay1()
 {
   image(background, 0, 0);
-  bunnies = loadImage("bunnies.png");
-  bunny1 = loadImage("bunny1.png");
+  bunnies = loadImage("docs/data/bunnies.png");
+  bunny1 = loadImage("docs/data/bunny1.png");
   image(bunny1, mouseX-35, mouseY-35, 70, 70);
   image(bunnies, 100, 10, 300, 60);
   fill(0);
@@ -335,8 +335,8 @@ void drawGamePlay1()
 void drawGamePlay2() 
 {
   image(background, 0, 0);
-  bunnies = loadImage("bunnies.png");
-  bunny2 = loadImage("bunny2.png");
+  bunnies = loadImage("docs/data/bunnies.png");
+  bunny2 = loadImage("docs/data/bunny2.png");
   image(bunny2, mouseX-35, mouseY-35, 70, 70);
   image(bunnies, 100, 10, 300, 60);  
   fill(0);
@@ -396,8 +396,8 @@ void drawGamePlay2()
 void drawGamePlay3()
 {
   image(background, 0, 0);
-  bunnies = loadImage("bunnies.png");
-  bunny3 = loadImage("bunny3.png");
+  bunnies = loadImage("docs/data/bunnies.png");
+  bunny3 = loadImage("docs/data/bunny3.png");
   image(bunny3, mouseX-35, mouseY-35, 70, 70);
   image(bunnies, 100, 10, 300, 60);  
   fill(0);
@@ -457,8 +457,8 @@ void drawGamePlay3()
 void drawGamePlay4()
 {
   image(background, 0, 0);
-  bunnies = loadImage("bunnies.png");
-  bunny4 = loadImage("bunny4.png");
+  bunnies = loadImage("docs/data/bunnies.png");
+  bunny4 = loadImage("docs/data/bunny4.png");
   image(bunny4, mouseX-35, mouseY-35, 70, 70);
   image(bunnies, 100, 10, 300, 60);  
   fill(0);
@@ -518,7 +518,7 @@ void drawGamePlay4()
 void drawYouWin()
 {
   image(background, 0, 0);
-  youWin = loadImage("youWin.png");
+  youWin = loadImage("docs/data/youWin.png");
   image(youWin, 160, 100, 350, 200);
   fill(0);
   textSize(30);
@@ -531,7 +531,7 @@ void drawYouWin()
 void drawGameOver()
 {
   image(background, 0, 0);
-  gameOver = loadImage("gameOver.png");
+  gameOver = loadImage("docs/data/gameOver.png");
   image(gameOver, 160, 100, 350, 200);
   fill(0);
   textSize(30);
