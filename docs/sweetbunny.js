@@ -58,7 +58,7 @@ function preload() {
 
   // set up sweets
   for (let i = 0; i < numOfSweets; i++) {
-    sweets[i] = loadImage("sweets" + i + ".png"); //load the i-th sweets
+    sweets[i] = loadImage("data/sweets" + i + ".png"); //load the i-th sweets
     xSwts[i] = random(-imgWidth, canvasWidth + imgWidth);
     ySwts[i] = random(76, height); //set x-i and y-i TODO 76 magic
 
@@ -73,7 +73,7 @@ function preload() {
   // set up other things
   for (let i = 0; i < numOfOthers; i++) {
     //load the i-th other things
-    otherthings[i] = loadImage("otherthings" + i + ".png");
+    otherthings[i] = loadImage("data/otherthings" + i + ".png");
     xOths[i] = random(-imgWidth, canvasWidth + imgWidth);
     yOths[i] = random(76, height); // TODO repetitive code
 
