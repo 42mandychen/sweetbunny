@@ -62,7 +62,7 @@ function preload() {
     xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
     ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76; //set x-i and y-i TODO 76 magic
 
-    if (random(0, 2) < 1) { // TODO magic
+    if (Math.random() * 2 < 1) { // TODO magic
       sSwts[i] = (Math.random() * (15 - 8)) + 8;
     } else {
       sSwts[i] = (Math.random() * (15 - 8)) - 15;
@@ -77,7 +77,7 @@ function preload() {
     xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
     yOths[i] = (Math.random() * (canvasHeight - 76)) + 76; // TODO repetitive code
 
-    if (random(0, 2) < 1) {
+    if (Math.random() * 2 < 1) {
       sOths[i] = (Math.random() * (15 - 8)) + 8;
     } else {
       sOths[i] = (Math.random() * (15 - 8)) - 15;
@@ -94,13 +94,13 @@ function setup() {
 
 function draw() {
   switch (stageNum) {
-    case - 3:
+    case -3:
       drawWelcome();
       break;
-    case - 2:
+    case -2:
       drawInstruction();
       break;
-    case - 1:
+    case -1:
       drawGameOver();
       break;
     case 0:
@@ -125,13 +125,13 @@ function draw() {
 }
 
 function keyTyped() {
-  if ((key == 'i' || key == 'I') && (stageNum == -3)) {
+  if ((key === 'i' || key === 'I') && (stageNum === -3)) {
     stageNum = -2;
-  } else if ((key == 's' || key == 'S') && ((stageNum == -3) || (stageNum == -2))) {
+  } else if ((key === 's' || key === 'S') && ((stageNum === -3) || (stageNum === -2))) {
     stageNum = 2;
-  } else if ((key == 'r' || key == 'R') && ((stageNum == 5) || (stageNum == -1))) {
+  } else if ((key === 'r' || key === 'R') && ((stageNum === 5) || (stageNum === -1))) {
     setup();
-  } else if ((key == 'E' || key == 'e') && ((stageNum == 5) || (stageNum == -1))) {
+  } else if ((key === 'E' || key === 'e') && ((stageNum === 5) || (stageNum === -1))) {
     exit();
   }
 }
@@ -227,14 +227,14 @@ function drawGamePlay0() {
   line(340, 76, 410, 76);
 
   for (let i = 0; i < numOfSweets; i = i + 1) {
-    if (visibleSwts[i] == true) {
+    if (visibleSwts[i] === true) {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
         xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sSwts[i] = (Math.random() * (15 - 8)) - 15;
@@ -243,14 +243,14 @@ function drawGamePlay0() {
     }
   }
   for (let i = 0; i < numOfOthers; i = i + 1) {
-    if (visibleOths[i] == true) {
+    if (visibleOths[i] === true) {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
         xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sOths[i] = (Math.random() * (15 - 8)) - 15;
@@ -274,14 +274,14 @@ function drawGamePlay1() {
   line(276, 76, 340, 76);
 
   for (let i = 0; i < numOfSweets; i = i + 1) {
-    if (visibleSwts[i] == true) {
+    if (visibleSwts[i] === true) {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
         xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sSwts[i] = (Math.random() * (15 - 8)) - 15;
@@ -290,14 +290,14 @@ function drawGamePlay1() {
     }
   }
   for (let i = 0; i < numOfOthers; i = i + 1) {
-    if (visibleOths[i] == true) {
+    if (visibleOths[i] === true) {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
         xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sOths[i] = (Math.random() * (15 - 8)) - 15;
@@ -321,14 +321,14 @@ function drawGamePlay2() {
   line(220, 76, 276, 76);
 
   for (let i = 0; i < numOfSweets; i = i + 1) {
-    if (visibleSwts[i] == true) {
+    if (visibleSwts[i] === true) {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
         xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sSwts[i] = (Math.random() * (15 - 8)) - 15;
@@ -337,14 +337,14 @@ function drawGamePlay2() {
     }
   }
   for (let i = 0; i < numOfOthers; i = i + 1) {
-    if (visibleOths[i] == true) {
+    if (visibleOths[i] === true) {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
         xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sOths[i] = (Math.random() * (15 - 8)) - 15;
@@ -368,14 +368,14 @@ function drawGamePlay3() {
   line(158, 76, 220, 76);
 
   for (let i = 0; i < numOfSweets; i++) {
-    if (visibleSwts[i] == true) {
+    if (visibleSwts[i] === true) {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
         xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sSwts[i] = (Math.random() * (15 - 8)) - 15;
@@ -384,14 +384,14 @@ function drawGamePlay3() {
     }
   }
   for (let i = 0; i < numOfOthers; i++) {
-    if (visibleOths[i] == true) {
+    if (visibleOths[i] === true) {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
         xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sOths[i] = (Math.random() * (15 - 8)) - 15;
@@ -416,14 +416,14 @@ function drawGamePlay4() {
   line(98, 76, 158, 76);
 
   for (let i = 0; i < numOfSweets; i++) {
-    if (visibleSwts[i] == true) {
+    if (visibleSwts[i] === true) {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
         xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sSwts[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sSwts[i] = (Math.random() * (15 - 8)) - 15;
@@ -432,14 +432,14 @@ function drawGamePlay4() {
     }
   }
   for (let i = 0; i < numOfOthers; i++) {
-    if (visibleOths[i] == true) {
+    if (visibleOths[i] === true) {
       image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
         xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
         yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
 
-        if (random(0, 2) < 1) {
+        if (Math.random() * 2 < 1) {
           sOths[i] = (Math.random() * (15 - 8)) + 8;
         } else {
           sOths[i] = (Math.random() * (15 - 8)) - 15;
