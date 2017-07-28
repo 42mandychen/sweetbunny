@@ -242,7 +242,7 @@ function loadBunnies() {
 }
 
 function generateRandomXpos(array, index) {
-  array[index] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
+  array[index] = (Math.random() * (2 * imgWidth + canvasWidth)) - imgWidth;
 }
 
 function generateRandomYpos(array, index) {
@@ -251,9 +251,9 @@ function generateRandomYpos(array, index) {
 
 function generateRandomSpeed(array, index) {
   if (Math.random() < 0.5) {
-    array[index] = (Math.random() * 5) + 2;
+    array[index] = (Math.random() * 3) + 2;
   } else {
-    array[index] = (Math.random() * 5) - 2;
+    array[index] = (Math.random() * 3) - 2;
   }
 }
 
