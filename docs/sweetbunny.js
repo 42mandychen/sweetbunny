@@ -117,8 +117,6 @@ function keyTyped() {
     stageNum = 2;
   } else if ((key === 'r' || key === 'R') && ((stageNum === 5) || (stageNum === -1))) {
     setup();
-  } else if ((key === 'E' || key === 'e') && ((stageNum === 5) || (stageNum === -1))) {
-    exit();
   }
 }
 
@@ -130,6 +128,7 @@ function mousePressed() {
       generateRandomXpos(xSwts, i);
       generateRandomYpos(ySwts, i);
       updateStage();
+      return;
     }
   }
   for (let i = 0; i < numOfOthers; i++) {
@@ -137,6 +136,7 @@ function mousePressed() {
       generateRandomXpos(xOths, i);
       generateRandomYpos(yOths, i);
       stageNum = stageNum - 1;
+      return;
     }
   }
 }
@@ -195,30 +195,20 @@ function drawGamePlay(level) {
       image(sweets[i], xSwts[i], ySwts[i], 70, 70);
       xSwts[i] += sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
-        xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
-        ySwts[i] = (Math.random() * (canvasHeight - 76)) + 76;
-
-        if (Math.random() * 2 < 1) {
-          sSwts[i] = (Math.random() * (15 - 8)) + 8;
-        } else {
-          sSwts[i] = (Math.random() * (15 - 8)) - 15;
-        }
+        generateRandomXpos(xSwts, i);
+        generateRandomYpos(ySwts, i);
+        generateRandomSpeed(sSwts, i);
       }
     }
   }
   for (let i = 0; i < numOfOthers; i = i + 1) {
     if (visibleOths[i] === true) {
       image(otherthings[i], xOths[i], yOths[i], 70, 70);
-      xOths[i] = xOths[i] + sOths[i];
+      xOths[i] += sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
-        xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
-        yOths[i] = (Math.random() * (canvasHeight - 76)) + 76;
-
-        if (Math.random() * 2 < 1) {
-          sOths[i] = (Math.random() * (15 - 8)) + 8;
-        } else {
-          sOths[i] = (Math.random() * (15 - 8)) - 15;
-        }
+        generateRandomXpos(xOths, i);
+        generateRandomYpos(yOths, i);
+        generateRandomSpeed(sOths, i);
       }
     }
   }
@@ -251,9 +241,9 @@ function generateRandomYpos(array, index) {
 
 function generateRandomSpeed(array, index) {
   if (Math.random() < 0.5) {
-    array[index] = (Math.random() * 2) + 2;
+    array[index] = (Math.random() * 2) + 5;
   } else {
-    array[index] = (Math.random() * 2) - 2;
+    array[index] = (Math.random() * 2) - 5;
   }
 }
 
