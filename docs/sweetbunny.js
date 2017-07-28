@@ -251,9 +251,9 @@ function generateRandomYpos(array, index) {
 
 function generateRandomSpeed(array, index) {
   if (Math.random() < 0.5) {
-    array[index] = (Math.random() * 3) + 2;
+    array[index] = (Math.random() * 2) + 2;
   } else {
-    array[index] = (Math.random() * 3) - 2;
+    array[index] = (Math.random() * 2) - 2;
   }
 }
 
