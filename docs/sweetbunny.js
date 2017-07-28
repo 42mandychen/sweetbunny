@@ -89,11 +89,14 @@ function preload() {
 }
 
 function setup() {
+  console.log('setup');
   createCanvas(canvasWidth, canvasHeight);
   image(background, 0, 0);
+  stageNum = -3;
 }
 
 function draw() {
+  console.log('draw stage ' + stageNum);
   switch (stageNum) {
     case -3:
       drawWelcome();
@@ -118,6 +121,7 @@ function draw() {
 }
 
 function keyTyped() {
+  console.log('key pressed: ' + key);
   if ((key === 'i' || key === 'I') && (stageNum === -3)) {
     stageNum = -2;
   } else if ((key === 's' || key === 'S') && ((stageNum === -3) || (stageNum === -2))) {
@@ -152,6 +156,7 @@ function mousePressed() {
 }
 
 function drawWelcome() {
+  image(background, 0, 0);
   image(sweet, 200, 50, 300, 100);
   image(bunny, 210, 130, 300, 100);
   image(rowOfBunnies, 120, 400, 500, 100);
@@ -165,6 +170,7 @@ function drawWelcome() {
 }
 
 function drawInstruction() {
+  image(background, 0, 0);
   for (let i = 0; i < 8; i++) {
     if (i < 4) {
       image(sweets[i], 100 + 50 * (i + 1), 80, 50, 50);
@@ -191,7 +197,7 @@ function drawInstruction() {
   fill(0);
   text("the happier he becomes", 150, 400);
 
-  image(bunnies[numOfBunnies], 150, 430, 80, 80);
+  image(bunnies[numOfBunnies - 1], 150, 430, 80, 80);
   textSize(30);
   fill(0);
   text("You win", 230, 500);
@@ -207,6 +213,8 @@ function drawInstruction() {
 }
 
 function drawGamePlay(level) {
+  console.log('draw game play at level ' + level);
+  image(background, 0, 0);
   let currBunny = bunnies[level];
   image(currBunny, mouseX - 35, mouseY - 35, 70, 70);
   image(rowOfBunnies, 100, 10, 300, 60);
@@ -254,6 +262,7 @@ function drawGamePlay(level) {
 }
 
 function drawResult(result) {
+  image(background, 0, 0);
   if (result === 'win') {
     image(youWin, 160, 100, 350, 200);
   } else { //'lose'
