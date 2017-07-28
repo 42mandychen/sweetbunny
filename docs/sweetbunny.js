@@ -124,7 +124,7 @@ function keyTyped() {
 
 function mousePressed() {
   for (let i = 0; i < numOfSweets; i++) {
-    if ((mouseX >= xSwts[i] && mouseX <= xSwts[i] + 70) && (mouseY >= ySwts[i] && mouseY <= ySwts[i] + 70)) {
+    if (pressedOnObject(mouseX, mouseY, xSwts[i], ySwts[i])) {
       generateRandomXpos(xSwts, i);
       generateRandomYpos(ySwts, i);
       updateStage();
@@ -132,7 +132,7 @@ function mousePressed() {
     }
   }
   for (let i = 0; i < numOfOthers; i++) {
-    if ((mouseX >= xOths[i] && mouseX <= xOths[i] + 70) && (mouseY >= yOths[i] && mouseY <= yOths[i] + 70)) {
+    if (pressedOnObject(mouseX, mouseY, xOths[i], yOths[i])) {
       generateRandomXpos(xOths, i);
       generateRandomYpos(yOths, i);
       stageNum = stageNum - 1;
@@ -172,29 +172,17 @@ function drawInstruction() {
 function drawGamePlay(level) {
   image(background, 0, 0); // reset background
   let currBunny = bunnies[level];
-  image(currBunny, mouseX - 35, mouseY - 35, 70, 70);
+  image(currBunny, mouseX - 35, mouseY - 35, imgWidth, imgHeight);
   image(rowOfBunnies, 100, 10, 300, 60);
   displayText(0, 30, "Bunny", 10, 25);
   displayText(0, 30, "State:", 10, 65);
-  stroke(255, 0, 0);
-  strokeWeight(4);
-  if (level === 0) {
-    line(340, 76, 410, 76);
-  } else if (level === 1) {
-    line(276, 76, 340, 76);
-  } else if (level === 2) {
-    line(220, 76, 276, 76);
-  } else if (level === 3) {
-    line(158, 76, 220, 76);
-  } else if (level === 4) {
-    line(98, 76, 158, 76);
-  }
+  drawLevel(level);
 
   for (let i = 0; i < numOfSweets; i = i + 1) {
     if (visibleSwts[i] === true) {
-      image(sweets[i], xSwts[i], ySwts[i], 70, 70);
+      image(sweets[i], xSwts[i], ySwts[i], imgWidth, imgHeight);
       xSwts[i] += sSwts[i];
-      if ((xSwts[i] > width) || (xSwts[i] < 0)) {
+      if (outOfScreen(xSwts[i])) {
         generateRandomXpos(xSwts, i);
         generateRandomYpos(ySwts, i);
         generateRandomSpeed(sSwts, i);
@@ -203,9 +191,9 @@ function drawGamePlay(level) {
   }
   for (let i = 0; i < numOfOthers; i = i + 1) {
     if (visibleOths[i] === true) {
-      image(otherthings[i], xOths[i], yOths[i], 70, 70);
+      image(otherthings[i], xOths[i], yOths[i], imgWidth, imgHeight);
       xOths[i] += sOths[i];
-      if ((xOths[i] > width) || (xOths[i] < 0)) {
+      if (outOfScreen(xOths[i])) {
         generateRandomXpos(xOths, i);
         generateRandomYpos(yOths, i);
         generateRandomSpeed(sOths, i);
@@ -276,4 +264,29 @@ function drawRowOfOthers() {
   for (let i = 0; i < 5; i++) {
     image(otherthings[i], 100 + 50 * (i + 1), 270, 50, 50);
   }
+}
+
+function drawLevel(level) {
+  stroke(255, 0, 0);
+  strokeWeight(4);
+  if (level === 0) {
+    line(340, 76, 410, 76);
+  } else if (level === 1) {
+    line(276, 76, 340, 76);
+  } else if (level === 2) {
+    line(220, 76, 276, 76);
+  } else if (level === 3) {
+    line(158, 76, 220, 76);
+  } else if (level === 4) {
+    line(98, 76, 158, 76);
+  }
+}
+
+function outOfScreen(xPos) {
+  return (xPos > width) || (xPos < 0);
+}
+
+function pressedOnObject(mouseX, mouseY, objectX, objectY) {
+  return (mouseX >= objectX && mouseX <= objectX + imgWidth)
+  && (mouseY >= objectY && mouseY <= objectY + imgHeight);
 }
