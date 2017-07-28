@@ -89,14 +89,12 @@ function preload() {
 }
 
 function setup() {
-  console.log('setup');
   createCanvas(canvasWidth, canvasHeight);
   image(background, 0, 0);
   stageNum = -3;
 }
 
 function draw() {
-  console.log('draw stage ' + stageNum);
   switch (stageNum) {
     case -3:
       drawWelcome();
@@ -121,7 +119,6 @@ function draw() {
 }
 
 function keyTyped() {
-  console.log('key pressed: ' + key);
   if ((key === 'i' || key === 'I') && (stageNum === -3)) {
     stageNum = -2;
   } else if ((key === 's' || key === 'S') && ((stageNum === -3) || (stageNum === -2))) {
@@ -213,7 +210,6 @@ function drawInstruction() {
 }
 
 function drawGamePlay(level) {
-  console.log('draw game play at level ' + level);
   image(background, 0, 0);
   let currBunny = bunnies[level];
   image(currBunny, mouseX - 35, mouseY - 35, 70, 70);
@@ -229,7 +225,7 @@ function drawGamePlay(level) {
 
   for (let i = 0; i < numOfSweets; i = i + 1) {
     if (visibleSwts[i] === true) {
-      // image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
+      image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
         xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
@@ -245,7 +241,7 @@ function drawGamePlay(level) {
   }
   for (let i = 0; i < numOfOthers; i = i + 1) {
     if (visibleOths[i] === true) {
-      // image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
+      image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
         xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
