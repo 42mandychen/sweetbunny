@@ -266,10 +266,10 @@ function updateStage() {
   }
 }
 
-function displayText(color, size, text, posX, posY) {
+function displayText(color, size, str, posX, posY) {
   fill(color);
   textSize(size);
-  text(text, posX, posY);
+  text(str, posX, posY);
 }
 
 function drawRowOfSweets() {
