@@ -191,12 +191,12 @@ function drawInstruction() {
   fill(0);
   text("the happier he becomes", 150, 400);
 
-  image(bunny[numOfBunnies], 150, 430, 80, 80);
+  image(bunnies[numOfBunnies], 150, 430, 80, 80);
   textSize(30);
   fill(0);
   text("You win", 230, 500);
 
-  image(bunny[0], 360, 430, 80, 80);
+  image(bunnies[0], 360, 430, 80, 80);
   textSize(30);
   fill(0);
   text("You lose", 450, 500);
