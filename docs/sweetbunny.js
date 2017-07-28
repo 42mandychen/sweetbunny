@@ -88,11 +88,15 @@ function preload() {
   }
 }
 
+/********* SETUP BLOCK *********/
+
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
   image(background, 0, 0);
   stageNum = -3;
 }
+
+/********* DRAW BLOCK *********/
 
 function draw() {
   switch (stageNum) {
@@ -118,6 +122,8 @@ function draw() {
   }
 }
 
+/********* KEY BLOCK *********/
+
 function keyTyped() {
   if ((key === 'i' || key === 'I') && (stageNum === -3)) {
     stageNum = -2;
@@ -129,6 +135,8 @@ function keyTyped() {
     exit();
   }
 }
+
+/********* MOUSE BLOCK *********/
 
 function mousePressed() {
   for (let i = 0; i < numOfSweets; i++) {
@@ -151,6 +159,8 @@ function mousePressed() {
     }
   }
 }
+
+/********* STAGES *********/
 
 function drawWelcome() {
   image(background, 0, 0);
@@ -222,6 +232,17 @@ function drawGamePlay(level) {
   text("State:", 10, 65);
   stroke(255, 0, 0);
   strokeWeight(4);
+  if (level === 0) {
+    line(340, 76, 410, 76);
+  } else if (level === 1) {
+    line(276, 76, 340, 76);
+  } else if (level === 2) {
+    line(220, 76, 276, 76);
+  } else if (level === 3) {
+    line(158, 76, 220, 76);
+  } else if (level === 4) {
+    line(98, 76, 158, 76);
+  }
 
   for (let i = 0; i < numOfSweets; i = i + 1) {
     if (visibleSwts[i] === true) {
@@ -267,8 +288,6 @@ function drawResult(result) {
   fill(0);
   textSize(30);
   text("Press 'R' to restart", 200, 320);
-  fill(0);
-  textSize(30);
-  text("Press 'E' to exit", 200, 350);
-
 }
+
+/********* HELPERS *********/
