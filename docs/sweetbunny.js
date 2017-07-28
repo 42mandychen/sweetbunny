@@ -107,7 +107,7 @@ function draw() {
       drawInstruction();
       break;
     case -1:
-      drawGameOver();
+      drawResult(false);
       break;
     case 0:
     case 1:
@@ -117,7 +117,7 @@ function draw() {
       drawGamePlay(stageNum);
       break;
     case 5:
-      drawYouWin();
+      drawResult(true);
       break;
   }
 }
@@ -278,9 +278,9 @@ function drawGamePlay(level) {
   }
 }
 
-function drawResult(result) {
+function drawResult(won) {
   image(background, 0, 0);
-  if (result === 'win') {
+  if (won === true) {
     image(youWin, 160, 100, 350, 200);
   } else { //'lose'
     image(gameOver, 160, 100, 350, 200);
