@@ -221,7 +221,7 @@ function drawGamePlay(level) {
 
   for (let i = 0; i < numOfSweets; i = i + 1) {
     if (visibleSwts[i] === true) {
-      image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
+      // image(sweets[i], xSwts[i], ySwts[i], 70, 70); //4. display the i-th image
       xSwts[i] = xSwts[i] + sSwts[i];
       if ((xSwts[i] > width) || (xSwts[i] < 0)) {
         xSwts[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
@@ -237,7 +237,7 @@ function drawGamePlay(level) {
   }
   for (let i = 0; i < numOfOthers; i = i + 1) {
     if (visibleOths[i] === true) {
-      image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
+      // image(otherthings[i], xOths[i], yOths[i], 70, 70); //4. display the i-th image
       xOths[i] = xOths[i] + sOths[i];
       if ((xOths[i] > width) || (xOths[i] < 0)) {
         xOths[i] = (Math.random() * (2 * imgWidth + canvasWidth)) - canvasWidth;
