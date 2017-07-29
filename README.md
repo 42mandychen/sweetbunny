@@ -1,15 +1,22 @@
 # Sweet Bunny
 A bunny who's really into sweets. Help him get the sweets!
 
-![game.gif](./screenshots/game.gif)
-
-## How to Play
+http://mandychen.me/sweetbunny/
 
 ![start-screen.png](./screenshots/start-screen.png)
 
-### Execute From Source Code
+![game.gif](./screenshots/game.gif)
 
-Get the Processing Development Environment (PDE) either on [Processing's website](https://processing.org/download/), 
+## Source Code
+
+### JavaScript Source Code
+
+I rewrote my old code (in Processing) to a new JavaScript file, [sweetbunny.js](./docs/sweetbunny.js) so that I can embed it on my website. I also cleaned up repetitive and redundant code during the process.
+
+
+### Processing Source
+
+The Processing source code file, [sweetbunny.pde](./sweetbunny.pde) was written in 2015. You can run it on the Processing Development Environment (PDE). Get PDE either on [Processing's website](https://processing.org/download/),
 or use a package manager like [homebrew](https://brew.sh/) and run
 
 ```bash
@@ -18,9 +25,17 @@ $ brew cask install processing
 
 After installing, open PDE, clone this repo and open `sweetbunny.pde` from PDE, and click the run button on the top left corner.
 
-## Source Code
+### Develop Locally
 
-The source code file is [sweetbunny.pde](./sweetbunny.pde) written in Processing. The PDE can also generate a `java` version, which I'm not including here.
+Use `php` built-in web server.
+
+Navigate to `./docs` directory and run
+
+```bash
+$ php -S localhost:8000
+```
+
+to start server locally at `http://localhost:8000`.
 
 ## About the Processing Programming Language
 
