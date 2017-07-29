@@ -77,7 +77,9 @@ function preload() {
 /********* SETUP BLOCK *********/
 
 function setup() {
-  createCanvas(canvasWidth, canvasHeight);
+  var canvas = createCanvas(canvasWidth, canvasHeight);
+  // Move the canvas so it's inside our <div id="sweetbunny">.
+  canvas.parent('sweetbunny');
   image(background, 0, 0);
   stageNum = -3;
 }
